@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Amanda's LaunchCode Blog</title>
+    </head>
+
+    <body>
+        <h1>My Blog</h1>
+        {% for post in posts %}
+          <div class="post">
+            <div class="post-title"><a href="/blog/{{post.key().id()}}">{{post.title}}</a></div>
+            <pre class="post-body">{{post.body}}</pre>
+          </div>
+        {% endfor %}
+        
+        {% if (next-1)*5 < posts.count(): %}
+          <a href="/blog?page={{next}}">Next</a>
+        {% endif %}
+
+        {% if previous > 0: %}
+        <a href="/blog?page={{previous}}">Previous</a>
+        {% endif %}
+</html>
